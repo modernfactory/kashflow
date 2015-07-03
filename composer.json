@@ -12,9 +12,6 @@
     "autoload": {
         "psr-4": { "Kashflow\\": "src/Kashflow" }
     },
-    "autoload-dev": {
-        "psr-4": { "Accounting\\": "../accounting/src/Accounting" }
-    },
     "require": {
         "agencycore/accounting": "1.0.*"
     }
