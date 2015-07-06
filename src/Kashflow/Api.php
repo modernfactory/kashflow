@@ -128,7 +128,7 @@ class Api extends AccountingApi
 		if ( is_soap_fault( $request ) )
 		{
             $this->debugger( $method, $request->getCode(), $client->__getLastRequest(), $request, true );
-            $this->error( $request->message, 500 );
+            $this->error( $request->getMessage(), 500 );
 		}
         else if ( $request->Status == 'NO' )
         {
