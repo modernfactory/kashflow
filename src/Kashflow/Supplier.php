@@ -114,7 +114,7 @@ class Supplier extends AccountingSupplier
             $supplier->id           = $object->SupplierID;
             $supplier->code         = $object->Code;
             $supplier->name         = $object->Name;
-            $supplier->contact      = $object->Contact;
+            $supplier->contact      = isset( $object->Contact )   ? $object->Contact   : null;
             $supplier->email        = isset( $object->Email )     ? $object->Email     : null;
             $supplier->phone        = isset( $object->Telephone ) ? $object->Telephone : null;
             $supplier->website      = isset( $object->Website )   ? $object->Website   : null;
