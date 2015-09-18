@@ -35,7 +35,7 @@ class Invoice extends AccountingInvoice
         	'DueDate'       => self::apiDate( $this->due ),
         	'InvoiceDate'   => self::apiDate( $this->issued ),
         	'CurrencyCode'  => $this->currency,
-        	'Reference'     => $this->po ? 'PO: ' . $this->po : '',
+        	'Reference'     => $this->po ? 'PO: ' . $this->po : $this->notes,
         	'CustomerID'    => isset( $this->customer->id ) ? $this->customer->id : $this->customerId,
         	'Paid'          => $this->paid,
         	'SuppressTotal' => 0,
