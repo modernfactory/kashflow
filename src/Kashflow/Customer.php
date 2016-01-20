@@ -133,9 +133,9 @@ class Customer extends AccountingCustomer
             $customer->discount     = isset($object->Discount) ? $object->Discount : null;
             $customer->showDiscount = isset($object->ShowDiscount) ? $object->ShowDiscount : null;
             $customer->VATNumber    = $object->VATNumber;
-            $customer->address3     = $object->address3;
-            $customer->address4     = $object->address4;
-            $customer->extraText1   = $object->extraText1;
+            $customer->address3     = $object->Address3;
+            $customer->address4     = $object->Address4;
+            $customer->extraText1   = $object->ExtraText1;
             $customer->created      = $object->Created;
             $customer->updated      = $object->Updated;
             $decode[] = $customer;
