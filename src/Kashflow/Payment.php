@@ -24,14 +24,9 @@ class Payment extends AccountingPayment
     public static function decode($data)
     {
         $decode = array();
-        $single = false;
         // get correct data
-        if (isset($data->GetPayments_RecentResult)) {
-            $data = $data->GetPayments_RecentResult->Payment;
-            $data = is_array($data) ? $data : array($data);
-        } else if (isset($data->GetPaymentByIDResult)) {
-            $data = array($data->GetPaymentByIDResult);
-            $single = true;
+        if (isset($data->GetInvoicePaymentResult)) {
+            $data = array($data->GetInvoicePaymentResult);
         } else {
             return false;
         }
@@ -49,7 +44,7 @@ class Payment extends AccountingPayment
 
             $decode[] = $payment;
         }
-        return $single ? $decode[0] : $decode;
+        return $decode;
     }
 
     /*

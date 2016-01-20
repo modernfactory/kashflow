@@ -69,6 +69,9 @@ class Api extends AccountingApi
             'create'  => 'InsertInvoicePayment',
             'findOne' => 'GetInvoicePayment',
             'delete'  => [ 'DeleteInvoicePayment', 'PaymentNumber' ],
+        ],
+        'printInvoice' => [
+            'findOne' => 'PrintInvoice',
         ]
     ];
 
@@ -181,6 +184,13 @@ class Api extends AccountingApi
             unset( $params[ ucfirst($type) . 'ID' ] );
             $params['InvoiceID'] = $id;
         }
+        if( $method == 'PrintInvoice')
+        {
+            unset( $params[ ucfirst($type) . 'ID' ] );
+            $params['InvoiceNumber'] = $id;
+        }
+
+
         // attempt request
         $response = $this->call( $method, $params );
         // prepare response
