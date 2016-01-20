@@ -64,9 +64,14 @@ class Api extends AccountingApi
             'findAll' => 'GetInvoices_Recent',
             'findOne' => 'GetInvoiceByID',
             'delete'  => [ 'DeleteInvoice', 'InvoiceNumber' ],
+        ],
+        'payment' => [
+            'create'  => 'InsertInvoicePayment',
+            'findOne' => 'GetInvoicePayment',
+            'delete'  => [ 'DeleteInvoicePayment', 'PaymentNumber' ],
         ]
     ];
-    
+
     /*
      * Private tokens
      *
@@ -82,7 +87,7 @@ class Api extends AccountingApi
     {
         return $this;
     }
-    
+
     /*
      * Set up the wrapper
      *
@@ -118,18 +123,18 @@ class Api extends AccountingApi
      */
     public function request( $method, array $params = array() )
     {
-		// authenticate request
-		$params['UserName'] = $this->_username;
-		$params['Password'] = $this->_password;
-		// make request
-		$client  = new \SoapClient( $this->api, array( 'exceptions' => false, 'trace' => true ) );
-		$request = $client->$method( $params );
-		// handle any errors
-		if ( is_soap_fault( $request ) )
-		{
+        // authenticate request
+        $params['UserName'] = $this->_username;
+        $params['Password'] = $this->_password;
+        // make request
+        $client  = new \SoapClient( $this->api, array( 'exceptions' => false, 'trace' => true ) );
+        $request = $client->$method( $params );
+        // handle any errors
+        if ( is_soap_fault( $request ) )
+        {
             $this->debugger( $method, $request->getCode(), $client->__getLastRequest(), $request, true );
             $this->error( $request->getMessage(), 500 );
-		}
+        }
         else if ( $request->Status == 'NO' )
         {
             $this->debugger( $method, $request->Status, $params, $request );
@@ -138,7 +143,7 @@ class Api extends AccountingApi
         // wrap up response
         return $this->response( $request, $request->Status );
     }
-    
+
     /*
      * Internal front end to request function
      *
@@ -151,7 +156,7 @@ class Api extends AccountingApi
         // make request
         return $this->request( $endpoint, $data );
     }
-    
+
     /**
      * Find one or more models
      *
