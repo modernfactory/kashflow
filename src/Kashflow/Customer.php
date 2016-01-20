@@ -46,6 +46,8 @@ class Customer extends AccountingCustomer
             'Website'      => $this->website,
             'Address1'     => $this->address,
             'Address2'     => $this->town,
+            'Address3'     => $this->address3,
+            'Address4'     => $this->address4,
             'Postcode'     => $this->postcode,
             'Telephone'    => $this->phone,
             'Notes'        => $this->notes,
@@ -57,6 +59,7 @@ class Customer extends AccountingCustomer
             'Discount'     => $this->discount,
             'ShowDiscount' => $this->showDiscount,
             'VATNumber'    => $this->VATNumber,
+            'ExtraText1'   => $this->extraText1,
             'Created'      => $this->created,
             'Updated'      => $this->updated,
             // why do we have to add all of these?! ask Kashflow :|
@@ -130,6 +133,9 @@ class Customer extends AccountingCustomer
             $customer->discount     = isset($object->Discount) ? $object->Discount : null;
             $customer->showDiscount = isset($object->ShowDiscount) ? $object->ShowDiscount : null;
             $customer->VATNumber    = $object->VATNumber;
+            $customer->address3     = $object->address3;
+            $customer->address4     = $object->address4;
+            $customer->extraText1   = $object->extraText1;
             $customer->created      = $object->Created;
             $customer->updated      = $object->Updated;
             $decode[] = $customer;
