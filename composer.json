@@ -1,5 +1,5 @@
 {
-    "name": "agencycore/kashflow",
+    "name": "modernfactory/kashflow",
     "description": "PHP wrapper for Kashflow SOAP API",
     "license": "MIT",
     "version": "1.0.7",
@@ -7,13 +7,17 @@
         {
             "name": "Matt Davies",
             "email": "matt@agencycore.co.uk"
+        },
+        {
+            "name": "Patryk Antkowiak",
+            "email": "patryk.antkowiak@modernfactory.pl"
         }
     ],
     "autoload": {
         "psr-4": { "Kashflow\\": "src/Kashflow" }
     },
     "require": {
-        "agencycore/accounting": "1.0.*"
+        "modernfactory/accounting": "1.0.*"
     },
     "minium-stability": "stable"
 }
