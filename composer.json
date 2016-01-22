@@ -17,7 +17,7 @@
         "psr-4": { "Kashflow\\": "src/Kashflow" }
     },
     "require": {
-        "modernfactory/accounting": "1.0.*"
+        "modernfactory/accounting": "dev-master"
     },
     "minium-stability": "stable"
 }
