@@ -2,7 +2,7 @@
     "name": "modernfactory/kashflow",
     "description": "PHP wrapper for Kashflow SOAP API",
     "license": "MIT",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "authors": [
         {
             "name": "Matt Davies",
@@ -17,7 +17,7 @@
         "psr-4": { "Kashflow\\": "src/Kashflow" }
     },
     "require": {
-        "modernfactory/accounting": "dev-master"
+        "modernfactory/accounting": "1.0.*"
     },
     "minium-stability": "stable"
 }
